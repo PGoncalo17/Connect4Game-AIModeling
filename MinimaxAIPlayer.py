@@ -36,7 +36,7 @@ class MinimaxAIPlayer(Player):
     def minimax(self, board, depth, alpha, beta, is_maximizing):
         opponent = 2 if self.piece == 1 else 1                                      # Identify the opponent's piece
 
-        if board.check_winner(self.piece):                                          # Terminal case: If we win, return a high positive score
+        if board.check_winner(self.piece):                                          # Terminal case: If player wins, return a high positive score
             return 1000000 + depth             
         if board.check_winner(opponent):                                            # Terminal case: If opponent wins, return a high negative score
             return -1000000 - depth            
@@ -88,7 +88,7 @@ class MinimaxAIPlayer(Player):
             o_count = segment.count(opponent)                                       # Count opponent pieces in the segment
             empty_count = segment.count(0)                                          # Count empty slots
 
-            if p_count == n:                                                        # segment contains a winning line
+            if p_count == n:                                                        # Segment contains a winning line
                 win_score += 100000
             elif p_count == n - 1 and empty_count == 1:                             # Threat: N-1 pieces and 1 empty space 
                 win_score += 50 

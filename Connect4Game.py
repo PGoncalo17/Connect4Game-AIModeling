@@ -78,18 +78,18 @@ if __name__ == "__main__":
     p3 = MCTSAIPlayer(piece=2)
     p4 = HumanPlayer(piece=2)
     game = Connect4Game()
-    durations = []              # List to store the duration of each game
-    for i in range(10):
-        start_time = time.time() # Record the start time of the game
-        game.run_game(p2, p3, headless=True)
+    durations = []                                                          # List to store the duration of each game
+    for i in range(2):
+        start_time = time.time()                                            # Record the start time of the game
+        game.run_game(p3, p4, headless=False)
 
-        end_time = time.time() # Record the end time of the game
-        duration = end_time - start_time # Calculate how long the game lasted
-        durations.append(duration) # Add to our list
+        end_time = time.time()                                              # Record the end time of the game
+        duration = end_time - start_time                                    # Calculate how long the game lasted
+        durations.append(duration)                                          # Add to list
 
         print(f"Game {i+1} finished in {duration:.2f} seconds")
 
-    # Calculate metrics using numpy 
+    # Calculate metrics
     avg_duration = np.sum(durations) / np.size(durations)
     max_duration = np.max(durations)
     min_duration = np.min(durations)
